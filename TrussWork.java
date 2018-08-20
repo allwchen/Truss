@@ -22,17 +22,18 @@ public class TrussWork {
 	private static final String OUTPUT_DATE_FORMAT = "YYYY-MM-dd'T'HH:mm:ssX";
 	private static final String DURATION_FORMAT = "H:mm:ss.SSS";
 	private static final String DURATION_ZERO = "0:00:00.000";
+	private static final String DEFAULT_CSV_FILE = "sample.csv";
 
 	public static void main(String args[]) {
 		
-		String csvInputFile = "sample.csv";
+	String csvInputFile;// = "sample.csv";
         String csvOutputFile = "output.csv";
         Scanner scanner;
         List<String> line;
         String lineToWrite;
-		BufferedWriter bw = null;
-		FileWriter fw = null;
-		boolean header = true;
+	BufferedWriter bw = null;
+	FileWriter fw = null;
+	boolean header = true;
         
         String inputTimestamp;
         String inputAddress;
@@ -65,6 +66,7 @@ public class TrussWork {
 		String[] barArray;
 		Duration totalDuration;
 		
+		csvInputFile = DEFAULT_CSV_FILE;
 		for (int i=0; i<args.length; i++) {
 			if (i==0) {
 				csvInputFile = args[i];
